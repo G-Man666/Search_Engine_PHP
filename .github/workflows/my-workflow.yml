@@ -39,6 +39,8 @@ jobs:
         run: |
           mkdir -p build/logs
           vendor/bin/phpunit --coverage-clover=build/logs/clover.xml
+        env:
+          XDEBUG_MODE: coverage
 
       - name: Upload Coverage to CodeClimate
         run: ./cc-test-reporter after-build --exit-code $?
